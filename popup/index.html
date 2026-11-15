@@ -3,14 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Extension Template</title>
+  <title>Invert</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <main>
-    <h1>Extension Template</h1>
-    <p id="status">Your popup is ready.</p>
-    <button id="example-button" type="button">Test button</button>
+    <div class="heading">
+      <span class="icon" aria-hidden="true">◐</span>
+      <div>
+        <h1>Invert</h1>
+        <p>Every color. Every page.</p>
+      </div>
+    </div>
+    <label class="switch-row" for="enabled">
+      <span>
+        <strong>Invert colors</strong>
+        <small id="status" role="status">Loading…</small>
+      </span>
+      <input id="enabled" type="checkbox" role="switch" checked>
+    </label>
+    <p class="hint">Changes apply to all open tabs and new pages.</p>
   </main>
   <script src="popup.js"></script>
 </body>
