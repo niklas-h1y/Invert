@@ -1,1 +1,4 @@
-/* Styles injected into matching pages by manifest.json. */
+/* Apply to the whole document: text, backgrounds, images, video, SVG and canvas. */
+html.invert-every-color-enabled {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
