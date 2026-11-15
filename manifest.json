@@ -1,36 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "Extension Template",
+  "name": "Invert",
   "version": "1.0.0",
-  "description": "A starter template for browser extensions.",
+  "description": "Invert every color on every website with one click.",
   "action": {
-    "default_title": "Extension Template",
+    "default_title": "Toggle Invert",
     "default_popup": "popup/index.html"
   },
   "background": {
     "service_worker": "background.js"
   },
-  "options_page": "options/index.html",
   "content_scripts": [
     {
-      "matches": [
-        "https://example.com/*"
-      ],
-      "js": [
-        "content/content.js"
-      ],
-      "css": [
-        "content/content.css"
-      ],
-      "run_at": "document_idle"
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_start",
+      "all_frames": true
     }
   ],
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["storage", "activeTab"],
   "browser_specific_settings": {
     "gecko": {
-      "id": "extension-template@example.com",
+      "id": "invert-colors@example.com",
       "strict_min_version": "109.0"
     }
   }
