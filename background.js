@@ -1,13 +1,7 @@
-// Manifest V3 background service worker.
-// Runs only when the browser needs it; do not rely on global state persisting.
-
-chrome.runtime.onInstalled.addListener(() => {
-  console.info("Extension Template installed.");
-});
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  // TODO: Handle messages from popup, options, or content scripts.
-  if (message?.type === "PING") {
-    sendResponse({ ok: true });
+// Persist a global default so the inversion setting follows the user across tabs.
+chrome.runtime.onInstalled.addListener(async () => {
+  const { enabled } = await chrome.storage.sync.get({ enabled: true });
+  if (typeof enabled !== "boolean") {
+    await chrome.storage.sync.set({ enabled: true });
   }
 });
